@@ -1,80 +1,85 @@
-<p align="center">
-  <img src="https://user-images.githubusercontent.com/60314759/147566893-63c5209a-8b83-4f32-af61-8b4c350ec770.png" width="300px" alt="Vibe Design System, by monday.com">
-  <h1 align="center">Vibe Design System</h1>
-</p>
+# Monday.com GraphQL Query Guide
 
-<p align="center">
-Official <a href="https://monday.com">monday.com</a> UI resources for application development in React.js
-</p>
+This README provides information on how to perform GraphQL queries with Monday.com's API.
 
-<p align="center">
-  <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@vibe/core">
-  <a href="https://bundlephobia.com/package/@vibe/core"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@vibe/core"></a>
-  <a href="https://www.npmjs.com/package/@vibe/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@vibe/core?label=@vibe/core"></a>
-  <a href="https://github.com/mondaycom/vibe/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mondaycom/vibe"></a>
-</p>
+## Getting Started
 
-<p align="center">
-  <a href="https://vibe.monday.com">Documentation</a> •
-  <a href="https://vibe.monday.com/?path=/docs/catalog--docs">Catalog</a> •
-  <a href="https://vibe.monday.com/?path=/story/playground--playground">Playground</a>
-</p>
+To use Monday.com's GraphQL API, you'll need:
 
-## Overview
+1. An API token from your Monday.com account
+2. A GraphQL client or HTTP client that can send POST requests
 
-Vibe Design System is a collection of packages designed to streamline your development process and enhance the user experience, by providing a set of components, styles, and guidelines for building applications in React.js.
+## Basic Query Structure
 
-## Installation
+A typical Monday.com GraphQL query looks like this:
 
-```bash
-npm install @vibe/core
-# or
-yarn add @vibe/core
+```graphql
+query {
+  boards(limit: 5) {
+    id
+    name
+    items {
+      id
+      name
+    }
+  }
+}
 ```
 
-To load all the relevant CSS tokens, import the tokens file in your root application file:
+## Examples
 
-```javascript
-import "@vibe/core/tokens";
+### 1. Fetching Boards
+
+```graphql
+query {
+  boards(limit: 10) {
+    id
+    name
+    description
+  }
+}
 ```
 
-## Usage
+### 2. Fetching Items from a Specific Board
 
-Components are imported from the library's root entry:
-
-```javascript
-import { Button } from "@vibe/core";
+```graphql
+query {
+  boards(ids: 123456) {
+    items {
+      id
+      name
+      column_values {
+        id
+        text
+      }
+    }
+  }
+}
 ```
 
-### MCP
+### 3. Creating a New Item
 
-Vibe includes an MCP (Model Context Protocol) server that provides intelligent assistance for working with Vibe components. The MCP server can help you discover component APIs, get usage examples, find appropriate icons, and follow best practices.
+```graphql
+mutation {
+  create_item(
+    board_id: 123456,
+    item_name: "New Task",
+    column_values: "{\"status\": \"Working on it\", \"date\": \"2023-05-20\"}"
+  ) {
+    id
+  }
+}
+```
 
-To get started, follow the installation instructions in the [@vibe/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md) docs to integrate it in your preferred AI development tools.
+## Best Practices
 
-## Ecosystem
+1. Always limit the number of results to avoid performance issues.
+2. Only request the fields you need to minimize response size.
+3. Use variables for dynamic values in your queries.
 
-- [@vibe/core](https://github.com/mondaycom/vibe/blob/master/packages/core/README.md): Core component library
-- [@vibe/icons](https://github.com/mondaycom/vibe/blob/master/packages/icons/README.md): Icons library
-- [@vibe/testkit](https://github.com/mondaycom/vibe/blob/master/packages/testkit/README.md): Testing utilities for Playwright
-- [@vibe/codemod](https://github.com/mondaycom/vibe/blob/master/packages/codemod/README.md): Codemods and CLI tools
-- [monday-ui-style](https://github.com/mondaycom/vibe/blob/master/packages/style/README.md): Styling foundations (included in @vibe/core)
-- [vibe-storybook-components](https://github.com/mondaycom/vibe/blob/master/packages/storybook-blocks/README.md): Vibe Storybook Blocks
-- [storybook-addon-playground](https://github.com/mondaycom/storybook-addon-playground/): A Component Playground Addon for Storybook
-- [@vibe/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md): MCP server for Vibe Design System
+## Further Resources
 
-## Older Versions
+- [Monday.com API Documentation](https://developer.monday.com/api-reference/docs)
+- [GraphQL Official Website](https://graphql.org/)
 
-Vibe 2 ([`monday-ui-react-core`](https://www.npmjs.com/package/monday-ui-react-core)) will no longer receive new features or enhancements but will continue to receive critical bug fixes as needed. We highly recommend following the [migration guide](http://vibe.monday.com/?path=/docs/migration-guide--docs) to upgrade to the actively maintained Vibe 3, which includes the latest improvements, new components, and ongoing support.
-
-For version 2 documentation, see [vibe.monday.com/v2](https://vibe.monday.com/v2).
-
-## Contributing
-
-We welcome and encourage every contributor! Please read our [Contribution Guide](http://vibe.monday.com/?path=/docs/contributing--docs).
-
-## Suggestions
-
-If you have any questions or suggestions, please feel free to open a [discussion](https://github.com/mondaycom/vibe/discussions).
-
-Found a bug? Please [open an issue](https://github.com/mondaycom/vibe/issues/new/choose).
+Remember to keep your API token secure and never expose it in client-side code.
