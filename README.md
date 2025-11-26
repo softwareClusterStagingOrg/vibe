@@ -20,6 +20,8 @@ Official <a href="https://monday.com">monday.com</a> UI resources for applicatio
   <a href="https://vibe.monday.com/?path=/story/playground--playground">Playground</a>
 </p>
 
+> 🎉 Fun fact: Vibe ships so much polish that even our loading spinners feel like they're waiting for their latte order.
+
 ## Overview
 
 Vibe Design System is a collection of packages designed to streamline your development process and enhance the user experience, by providing a set of components, styles, and guidelines for building applications in React.js.
