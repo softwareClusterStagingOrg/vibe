@@ -22,31 +22,94 @@ Official <a href="https://monday.com">monday.com</a> UI resources for applicatio
 
 ## Overview
 
-Vibe Design System is a collection of packages designed to streamline your development process and enhance the user experience, by providing a set of components, styles, and guidelines for building applications in React.js.
+Vibe Design System is a multi-package toolkit that streamlines monday.com product development. It ships production-ready React components, design tokens, styling foundations, icons, codemods, documentation, and automation so teams can move from design to implementation quickly while staying on-brand and accessible.
+
+## Features
+
+- **Production-ready React components** – Opinionated building blocks covering form controls, navigation, overlays, feedback, data display, and layout primitives.
+- **Design tokens** – monday.com design decisions (color, spacing, typography, elevation) exposed as CSS variables through `@vibe/core/tokens`.
+- **Documentation & playground** – API references, catalog pages, and interactive demos at [vibe.monday.com](https://vibe.monday.com).
+- **Developer automation** – Codemods, Playwright utilities, and the @vibe/mcp server for AI-assisted workflows across the ecosystem.
+- **Integration-ready assets** – SVG icons, Storybook blocks, and styling primitives that keep downstream apps visually consistent.
 
 ## Installation
 
+### Prerequisites
+
+- Node.js `v20.12` (see `.nvmrc`)
+- Yarn 1.x (workspace-aware) or npm 9+
+
+### Install `@vibe/core`
+
 ```bash
+# with npm
 npm install @vibe/core
-# or
+
+# or with Yarn
 yarn add @vibe/core
 ```
 
-To load all the relevant CSS tokens, import the tokens file in your root application file:
+### Monorepo setup (contributors)
 
-```javascript
+```bash
+git clone https://github.com/mondaycom/vibe.git
+cd vibe
+yarn install
+yarn build        # builds packages via Lerna
+yarn storybook    # runs Storybook instances in parallel
+```
+
+## Usage Examples
+
+### Import components
+
+```tsx
+import "@vibe/core/tokens"; // once in your app entrypoint
+import { Button, Flex, Text } from "@vibe/core";
+
+export function WelcomePanel() {
+  return (
+    <Flex direction="column" gap={3} padding={4}>
+      <Text size="md" weight="bold">
+        Welcome to Vibe
+      </Text>
+      <Button kind="primary" onClick={() => console.log("Clicked!")}>
+        Get started
+      </Button>
+    </Flex>
+  );
+}
+```
+
+### Compose components with tokens
+
+```tsx
 import "@vibe/core/tokens";
+import { Box } from "@vibe/core";
+
+export const Card = ({ children }) => (
+  <Box
+    elevation={2}
+    style={{
+      borderRadius: "var(--radius-large)",
+      backgroundColor: "var(--surface-secondary-color)",
+      padding: "var(--spacing-xl)"
+    }}
+  >
+    {children}
+  </Box>
+);
 ```
 
-## Usage
+## Configuration
 
-Components are imported from the library's root entry:
+- **Design tokens** – Import `@vibe/core/tokens` once per bundle to register CSS variables. Components and custom styles rely on the same theme contract.
+- **Tree shaking** – Favor `import { Button } from "@vibe/core";` so modern bundlers drop unused code paths.
+- **Icons** – Install `@vibe/icons` to access SVG assets that match component sizing and semantics.
+- **TypeScript** – Types are bundled with each package. Update `tsconfig.json` include paths if you restrict `node_modules`.
+- **Theming** – Override CSS variables at `:root` or within a scoped container to align Vibe with your product palette.
 
-```javascript
-import { Button } from "@vibe/core";
-```
-
-### MCP
+## MCP
 
 Vibe includes an MCP (Model Context Protocol) server that provides intelligent assistance for working with Vibe components. The MCP server can help you discover component APIs, get usage examples, find appropriate icons, and follow best practices.
 
@@ -71,7 +134,12 @@ For version 2 documentation, see [vibe.monday.com/v2](https://vibe.monday.com/v2
 
 ## Contributing
 
-We welcome and encourage every contributor! Please read our [Contribution Guide](http://vibe.monday.com/?path=/docs/contributing--docs).
+We welcome and encourage every contributor!
+
+1. Review the [Contribution Guide](http://vibe.monday.com/?path=/docs/contributing--docs) for branching strategy, coding standards, and review expectations.
+2. Install dependencies with `yarn install`, then run `yarn build` and `yarn lint` to ensure the workspace is healthy.
+3. Use `yarn storybook` for visual verification and `yarn test` to execute package-level suites.
+4. Open a pull request following `.github/PULL_REQUEST_TEMPLATE.md` so reviewers have context, screenshots, and test notes.
 
 ## Suggestions
 
