@@ -1,0 +1,23 @@
+.pink-app-theme,
+.pink_theme-app-theme { /* stylelint-disable-line selector-class-pattern */
+  --primary-color: #ff158a;
+  --primary-hover-color: #e60278;
+  --primary-selected-color: #ffd6eb;
+  --primary-selected-hover-color: #ffc2df;
+  --primary-highlighted-color: #fff0f7;
+  --primary-surface-color: #ffe4f1;
+
+  --brand-color: #ff158a;
+  --brand-hover-color: #e60278;
+  --brand-selected-color: #ffd6eb;
+  --brand-selected-hover-color: #ffc2df;
+
+  --label-background-color: #ffd6eb;
+  --label-background-on-secondary-color: #ffd6eb;
+
+  --primary-on-secondary-color: #ff158a;
+  --primary-hover-on-secondary-color: #e60278;
+  --primary-selected-on-secondary-color: #ffd6eb;
+  --primary-selected-color-rgb: 255, 214, 235;
+  --primary-background-hover-on-secondary-color: #ffe4f1;
+}

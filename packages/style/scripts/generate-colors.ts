@@ -21,7 +21,8 @@ const THEME_PATTERNS = {
   "light-app-theme": [":root", ".light-app-theme", ".default-app-theme"],
   "dark-app-theme": [".dark-app-theme"],
   "black-app-theme": [".black-app-theme"],
-  "hacker_theme-app-theme": [".hacker_theme-app-theme"]
+  "hacker_theme-app-theme": [".hacker_theme-app-theme"],
+  "pink-app-theme": [".pink-app-theme", ".pink_theme-app-theme"]
 };
 
 async function generateColors(): Promise<void> {

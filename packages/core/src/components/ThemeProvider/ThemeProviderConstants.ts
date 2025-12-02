@@ -1,5 +1,5 @@
 /**
- * System themes: dark, light, black
+ * System themes: light, dark, black, pink
  */
 /**
  * @deprecated
@@ -7,7 +7,8 @@
 export enum SystemTheme {
   LIGHT = "light",
   DARK = "dark",
-  BLACK = "black"
+  BLACK = "black",
+  PINK = "pink"
 }
 
 /**
@@ -55,7 +56,8 @@ type ThemeCustomClassValue = {
 export const SystemThemeClassMap: SystemThemeClassMapType = {
   [SystemTheme.LIGHT]: "light-app-theme",
   [SystemTheme.DARK]: "dark-app-theme",
-  [SystemTheme.BLACK]: "black-app-theme"
+  [SystemTheme.BLACK]: "black-app-theme",
+  [SystemTheme.PINK]: "pink-app-theme"
 };
 
 type SystemThemeClassMapType = {

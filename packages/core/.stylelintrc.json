@@ -23,7 +23,7 @@
     ],
     "scss/comment-no-empty": null,
     "selector-class-pattern": [
-      "^([a-z][a-z0-9]*([A-Z][a-z0-9]*)*|dark-app-theme|black-app-theme|hacker-app-theme|hacker_theme-app-theme)$",
+      "^([a-z][a-z0-9]*([A-Z][a-z0-9]*)*|dark-app-theme|black-app-theme|hacker-app-theme|hacker_theme-app-theme|pink-app-theme|pink_theme-app-theme)$",
       {
         "message": "Use camelCase for CSS class names in modules. Example: .myButton instead of .my-button"
       }
