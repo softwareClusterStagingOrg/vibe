@@ -43,6 +43,10 @@ export const Overview = {
         black: {
           "primary-color": "slateblue",
           "primary-hover-color": "darkslateblue"
+        },
+        pink: {
+          "primary-color": "deeppink",
+          "primary-hover-color": "mediumvioletred"
         }
       }
     }

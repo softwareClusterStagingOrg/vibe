@@ -96,6 +96,12 @@ describe("ThemeProvider tests", () => {
             "primary-hover-color": "#ad4007",
             "primary-selected-color": "#6d2703",
             "primary-selected-hover-color": "#491b04"
+          },
+          pink: {
+            "primary-color": "#d14903",
+            "primary-hover-color": "#ad4008",
+            "primary-selected-color": "#6d2704",
+            "primary-selected-hover-color": "#491b05"
           }
         }
       };
@@ -103,7 +109,8 @@ describe("ThemeProvider tests", () => {
       expect(css).toBe(
         `.light-app-theme .${ADDITIONAL_STRING_SELECTOR}.${themeConfig.name} {--primary-color: #d14900;--primary-hover-color: #ad4005;--primary-selected-color: #f8dccf;--primary-selected-hover-color: #f1d3c4;}\n` +
           `.dark-app-theme .${ADDITIONAL_STRING_SELECTOR}.${themeConfig.name} {--primary-color: #d14901;--primary-hover-color: #ad4006;--primary-selected-color: #6d2702;--primary-selected-hover-color: #491b03;}\n` +
-          `.black-app-theme .${ADDITIONAL_STRING_SELECTOR}.${themeConfig.name} {--primary-color: #d14902;--primary-hover-color: #ad4007;--primary-selected-color: #6d2703;--primary-selected-hover-color: #491b04;}\n`
+          `.black-app-theme .${ADDITIONAL_STRING_SELECTOR}.${themeConfig.name} {--primary-color: #d14902;--primary-hover-color: #ad4007;--primary-selected-color: #6d2703;--primary-selected-hover-color: #491b04;}\n` +
+          `.pink-app-theme .${ADDITIONAL_STRING_SELECTOR}.${themeConfig.name} {--primary-color: #d14903;--primary-hover-color: #ad4008;--primary-selected-color: #6d2704;--primary-selected-hover-color: #491b05;}\n`
       );
     });
 

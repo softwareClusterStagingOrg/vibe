@@ -1,4 +1,4 @@
-export type SystemTheme = "light" | "dark" | "black";
+export type SystemTheme = "light" | "dark" | "black" | "pink";
 
 /**
  * Colors which are eligible for theming
