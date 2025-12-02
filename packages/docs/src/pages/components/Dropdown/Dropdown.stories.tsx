@@ -4,7 +4,7 @@ import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMeta
 import person1 from "../Avatar/assets/person1.png";
 import person3 from "../Avatar/assets/person3.png";
 import person2 from "../Avatar/assets/person2.png";
-import { Attach, Email } from "@vibe/icons";
+import { Attach, Email, Notifications } from "@vibe/icons";
 import { Dropdown, type BaseDropdownProps, type DropdownOption } from "@vibe/core/next";
 import { Flex, Text } from "@vibe/core";
 import { FixedSizeList as List } from "react-window";
@@ -306,6 +306,56 @@ export const DropdownWithIconOrAvatar: Story = {
         scope: { person1, person2, person3 }
       }
     }
+  }
+};
+
+export const DropdownMultiSelectWithIcons: Story = {
+  render: () => {
+    const options: DropdownOption<Record<string, unknown>>[] = useMemo(
+      () => [
+        {
+          value: "email",
+          label: "Email",
+          startElement: {
+            type: "icon",
+            value: Email
+          }
+        },
+        {
+          value: "attachments",
+          label: "Attachments",
+          startElement: {
+            type: "icon",
+            value: Attach
+          }
+        },
+        {
+          value: "mentions",
+          label: "Mentions",
+          startElement: {
+            type: "icon",
+            value: Notifications
+          }
+        }
+      ],
+      []
+    );
+
+    return (
+      <div style={{ width: "360px" }}>
+        <Dropdown
+          id="dropdown-multiselect-icons"
+          ariaLabel="Notification channels dropdown"
+          placeholder="Select notification channels"
+          options={options}
+          defaultValue={[options[0], options[1]]}
+          multi
+          multiline
+          helperText="Choose the channels that should fire alerts"
+          clearAriaLabel="Clear"
+        />
+      </div>
+    );
   }
 };
 
