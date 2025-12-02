@@ -1,0 +1,34 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`renders the default shtrudel 1`] = `
+<span
+  className="shtrudel tonePrimary sizeMedium variantSoft"
+  data-testid="shtrudel"
+  data-vibe="Shtrudel"
+>
+  <span
+    className="symbol"
+  >
+    @
+  </span>
+</span>
+`;
+
+exports[`renders with custom props 1`] = `
+<span
+  className="shtrudel tonePositive sizeLarge variantSolid withPulse"
+  data-testid="shtrudel"
+  data-vibe="Shtrudel"
+>
+  <span
+    className="symbol"
+  >
+    #
+  </span>
+  <span
+    className="label"
+  >
+    Mention available
+  </span>
+</span>
+`;

@@ -1,0 +1,42 @@
+import { Meta } from "@storybook/blocks";
+import * as ShtrudelStories from "./Shtrudel.stories";
+
+<Meta of={ShtrudelStories} />
+
+# Shtrudel
+
+Shtrudel highlights mentions or inline callouts with a dedicated "@" symbol, tone-based colors, and optional pulse feedback.
+
+<Canvas of={ShtrudelStories.Overview} />
+
+### Import
+
+```js
+import { Shtrudel } from "@vibe/core";
+```
+
+## Props
+
+<PropsTable />
+
+## Variants
+
+### Tones
+
+<Canvas of={ShtrudelStories.Tones} />
+
+### Sizes
+
+<Canvas of={ShtrudelStories.Sizes} />
+
+### Variants
+
+<Canvas of={ShtrudelStories.Variants} />
+
+### Attention pulse
+
+<Canvas of={ShtrudelStories.Pulse} />
+
+## Related components
+
+<RelatedComponents componentsNames={["Chips", "Badge", "Label"]} />
