@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Combobox", () => {
     await page.goto(comboboxStory);
     frame = page.frameLocator(frameLocator);
     combobox = new Combobox(page, frame.locator(comboboxLocator), "Combobox");
-    await page.reload();
     await combobox.waitForElementToBeVisible();
   });
 

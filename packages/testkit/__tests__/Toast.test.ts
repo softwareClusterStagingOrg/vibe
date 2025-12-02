@@ -13,7 +13,6 @@ test.describe("Testkit - Unit Tests - Button Toast", () => {
     await page.goto(buttonToastStory);
     frame = page.frameLocator(frameLocator);
     toast = new Toast(page, frame.locator(toastLocator), "Toast");
-    await page.reload();
     await toast.waitForElementToBeVisible();
   });
 
@@ -103,7 +102,6 @@ test.describe("Testkit - Unit Tests - Link Toast", () => {
     await page.goto(linkToastStory);
     frame = page.frameLocator(frameLocator);
     toast = new Toast(page, frame.locator(toastLocator), "Toast");
-    await page.reload();
     await toast.waitForElementToBeVisible();
   });
 
@@ -215,7 +213,6 @@ test.describe("Testkit - Unit Tests - Loading Toast", () => {
     await page.goto(loadingToastStory);
     frame = page.frameLocator(frameLocator);
     toast = new Toast(page, frame.locator(toastLocator), "Toast");
-    await page.reload();
     await toast.waitForElementToBeVisible();
   });
 

@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Toggle", () => {
     await page.goto(toggleStory);
     frame = page.frameLocator(frameLocator);
     toggle = new Toggle(page, frame.locator(toggleLocator).locator(".."), "Toggle");
-    await page.reload();
     await toggle.waitForElementToBeVisible();
   });
 

@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Link", () => {
     await page.goto(linkStory);
     frame = page.frameLocator(frameLocator);
     link = new Link(page, frame.locator(linkLocator), "Link");
-    await page.reload();
     await link.waitForElementToBeVisible();
   });
 

@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - ButtonGroup", () => {
     await page.goto(buttonGroupStory);
     frame = page.frameLocator(frameLocator);
     buttonGroup = new ButtonGroup(page, frame.locator(buttonGroupLocator), "ButtonGroup");
-    await page.reload();
     await buttonGroup.waitForElementToBeVisible();
   });
 

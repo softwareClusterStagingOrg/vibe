@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Menu", () => {
     await page.goto(menuStory);
     frame = page.frameLocator(frameLocator);
     menu = new Menu(page, frame.locator(menuLocator), "Menu");
-    await page.reload();
     await menu.waitForElementToBeVisible();
   });
 
