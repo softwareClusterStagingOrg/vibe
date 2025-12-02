@@ -12,4 +12,8 @@ $indicator-size: 8px;
   &.notification {
     background-color: var(--negative-color);
   }
+
+  &.positive {
+    background-color: var(--positive-color);
+  }
 }

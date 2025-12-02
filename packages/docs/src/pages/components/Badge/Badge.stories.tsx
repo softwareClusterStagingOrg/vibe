@@ -52,6 +52,18 @@ export const States = {
         </Badge>
       </Flex>
       <Flex direction="column" gap="medium" align="start">
+        Indicator (positive)
+        <Badge id="indicator-positive-badge" color="positive">
+          <Button
+            id="indicator-positive-button"
+            ariaLabel="What's new button with positive indicator"
+            leftIcon={WhatsNew}
+          >
+            {"What's new"}
+          </Button>
+        </Badge>
+      </Flex>
+      <Flex direction="column" gap="medium" align="start">
         Counter
         <Badge id="counter-badge" type="counter" count={100} maxDigits={2} ariaLabel="100 notifications">
           <Button id="counter-button" ariaLabel="What's new button with counter" leftIcon={WhatsNew}>
