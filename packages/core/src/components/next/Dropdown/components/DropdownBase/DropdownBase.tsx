@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import cx from "classnames";
 import FieldLabel from "../../../../FieldLabel/FieldLabel";
 import Text from "../../../../Text/Text";
@@ -8,6 +8,8 @@ import { ComponentDefaultTestId, ComponentVibeId } from "../../../../../tests/co
 import { useDropdownContext } from "../../context/DropdownContext";
 import { type BaseListItemData } from "../../../../BaseListItem";
 import Tooltip from "../../../../Tooltip/Tooltip";
+import { LayerProvider } from "@vibe/layer";
+import useMergeRef from "../../../../../hooks/useMergeRef";
 
 interface DropdownBaseProps {
   dropdownRef: React.Ref<HTMLDivElement>;
@@ -33,9 +35,12 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
     tooltipProps
   } = useDropdownContext<BaseListItemData>();
 
+  const layerRef = useRef<HTMLDivElement>(null);
+  const mergedDropdownRef = useMergeRef<HTMLDivElement>(dropdownRef, layerRef);
+
   const coreDropdownElement = (
     <div
-      ref={dropdownRef}
+      ref={mergedDropdownRef}
       className={cx(styles.wrapper, className, {
         [styles.disabled]: disabled,
         [styles.readOnly]: readOnly,
@@ -47,7 +52,7 @@ const DropdownBase = ({ dropdownRef, children }: DropdownBaseProps) => {
       data-testid={dataTestIdFromContext || getTestId(ComponentDefaultTestId.DROPDOWN, id)}
       data-vibe={ComponentVibeId.DROPDOWN}
     >
-      {children}
+      <LayerProvider layerRef={layerRef}>{children}</LayerProvider>
     </div>
   );
 
