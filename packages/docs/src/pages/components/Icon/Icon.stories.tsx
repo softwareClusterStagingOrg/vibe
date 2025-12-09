@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Icon, SubIcon, Search, Flex } from "@vibe/core";
-import { Bolt } from "@vibe/icons";
+import { Bolt, Heart } from "@vibe/icons";
 import { createStoryMetaSettingsDecorator } from "../../../utils/createStoryMetaSettingsDecorator";
 import { createComponentTemplate } from "vibe-storybook-components";
 import * as allIcons from "@vibe/icons";
@@ -61,6 +61,19 @@ export const CustomSvg = {
       useCurrentColor
     />
   )
+};
+
+export const HeartIcon = {
+  render: () => (
+    <Icon id="heart-icon" iconType="svg" icon={Heart} iconLabel="my heart svg icon" iconSize={16} />
+  ),
+  parameters: {
+    docs: {
+      liveEdit: {
+        scope: { Heart }
+      }
+    }
+  }
 };
 
 export const Color = {
