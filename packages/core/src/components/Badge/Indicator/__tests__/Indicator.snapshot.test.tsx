@@ -11,7 +11,7 @@ describe("Indicator", () => {
   });
 
   it("renders correctly with a custom color", () => {
-    const tree = renderer.create(<Indicator color={IndicatorColor.PRIMARY} />).toJSON();
+    const tree = renderer.create(<Indicator color={IndicatorColor.POSITIVE} />).toJSON();
     expect(tree).toMatchSnapshot();
   });
 });

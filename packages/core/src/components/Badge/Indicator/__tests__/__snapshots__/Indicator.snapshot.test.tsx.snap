@@ -2,7 +2,7 @@
 
 exports[`Indicator > renders correctly with a custom color 1`] = `
 <div
-  className="indicator primary"
+  className="indicator positive"
   data-testid="indicator"
 />
 `;

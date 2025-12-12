@@ -3,5 +3,6 @@
  */
 export enum IndicatorColor {
   PRIMARY = "primary",
-  NOTIFICATION = "notification"
+  NOTIFICATION = "notification",
+  POSITIVE = "positive"
 }

@@ -1,1 +1,1 @@
-export type IndicatorColor = "primary" | "notification";
+export type IndicatorColor = "primary" | "notification" | "positive";
