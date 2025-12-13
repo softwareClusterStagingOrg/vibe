@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - IconButton", () => {
     await page.goto(iconButtonStory);
     frame = page.frameLocator(frameLocator);
     iconButton = new IconButton(page, frame.locator(iconButtonLocator), "Icon Button");
-    await page.reload();
     await iconButton.waitForElementToBeVisible();
   });
 

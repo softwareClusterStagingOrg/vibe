@@ -15,7 +15,6 @@ test.describe("Testkit - Unit Tests - MenuButton", () => {
     frame = page.frameLocator(frameLocator);
     const menu = new Menu(page, frame.locator(menuLocator), "Menu");
     menuButton = new MenuButton(page, frame.locator(menuButtonLocator), "Menu Button", menu);
-    await page.reload();
     await menuButton.waitForElementToBeVisible();
     await menuButton.closeMenu();
   });

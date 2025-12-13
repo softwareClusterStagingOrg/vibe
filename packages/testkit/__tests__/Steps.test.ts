@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Steps", () => {
     await page.goto(stepsStory);
     frame = page.frameLocator(frameLocator);
     steps = new Steps(page, frame.locator(stepsLocator), "Steps");
-    await page.reload();
     await steps.waitForElementToBeVisible();
   });
 

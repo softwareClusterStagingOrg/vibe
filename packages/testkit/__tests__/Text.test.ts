@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Text", () => {
     await page.goto(textStory);
     frame = page.frameLocator(frameLocator);
     text = new Text(page, frame.locator(textLocator), "Text");
-    await page.reload();
     await text.waitForElementToBeVisible();
   });
 

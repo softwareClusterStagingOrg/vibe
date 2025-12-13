@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Search", () => {
     await page.goto(searchStory);
     frame = page.frameLocator(frameLocator);
     search = new Search(page, frame.locator(searchLocator), "Search");
-    await page.reload();
     await search.waitForElementToBeVisible();
   });
 

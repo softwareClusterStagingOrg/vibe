@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - TabList", () => {
     await page.goto(tabsStory);
     frame = page.frameLocator(frameLocator);
     tabList = new TabList(page, frame.locator(tabsLocator), "Tabs");
-    await page.reload();
     await tabList.waitForElementToBeVisible();
   });
 

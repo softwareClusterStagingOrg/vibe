@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - TextArea", () => {
     await page.goto(textAreaStory);
     frame = page.frameLocator(frameLocator);
     textArea = new TextArea(page, frame.locator(textAreaLocator), "TextArea");
-    await page.reload();
     await textArea.waitForElementToBeVisible();
   });
 

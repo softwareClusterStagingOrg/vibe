@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Button", () => {
     await page.goto(buttonStory);
     frame = page.frameLocator(frameLocator);
     button = new Button(page, frame.locator(buttonLocator), "Button");
-    await page.reload();
     await button.waitForElementToBeVisible();
   });
 

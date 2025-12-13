@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Modal", () => {
     await page.goto(modalStory);
     frame = page.frameLocator(frameLocator);
     modal = new Modal(page, frame.locator(modalLocator), "Modal");
-    await page.reload();
     await modal.waitForElementToBeVisible();
   });
 

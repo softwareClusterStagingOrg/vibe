@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - ListItem", () => {
     await page.goto(listItemStory);
     frame = page.frameLocator(frameLocator);
     listItem = new ListItem(page, frame.locator(listItemLocator), "List Item");
-    await page.reload();
     await listItem.waitForElementToBeVisible();
   });
 

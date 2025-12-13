@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Loader", () => {
     await page.goto(loaderStory);
     frame = page.frameLocator(frameLocator);
     loader = new Loader(page, frame.locator(loaderLocator), "Loader");
-    await page.reload();
     await loader.waitForElementToBeVisible();
   });
 

@@ -15,7 +15,6 @@ test.describe("Testkit - Unit Tests - SplitButton", () => {
     frame = page.frameLocator(frameLocator);
     const menu = new Menu(page, frame.locator(menuLocator), "Menu");
     splitButton = new SplitButton(page, frame.locator(splitButtonLocator), "Split Button", menu);
-    await page.reload();
     await splitButton.waitForElementToBeVisible();
   });
 

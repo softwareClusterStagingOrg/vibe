@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Dropdown", () => {
     await page.goto(dropdownStory);
     frame = page.frameLocator(frameLocator);
     dropdown = new Dropdown(page, frame.locator(dropdownLocator), "Dropdown");
-    await page.reload();
     await dropdown.waitForElementToBeVisible();
     await dropdown.close();
   });

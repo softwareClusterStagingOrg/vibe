@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - Checkbox", () => {
     await page.goto(checkboxStory);
     frame = page.frameLocator(frameLocator);
     checkbox = new Checkbox(page, frame.locator(checkboxLocator), "Checkbox");
-    await page.reload();
     await checkbox.waitForElementToBeVisible();
   });
 

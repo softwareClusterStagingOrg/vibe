@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - RadioButton", () => {
     await page.goto(radioButtonStory);
     frame = page.frameLocator(frameLocator);
     radioButton = new RadioButton(page, frame.locator(radioButtonLocator), "RadioButton");
-    await page.reload();
     await radioButton.waitForElementToBeVisible();
   });
 

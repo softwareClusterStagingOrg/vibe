@@ -13,7 +13,6 @@ test.describe("Testkit - Unit Tests - ColorPicker", () => {
     await page.goto(colorPickerStory);
     frame = page.frameLocator(frameLocator);
     colorPicker = new ColorPicker(page, frame.locator(colorPickerLocator), "ColorPicker");
-    await page.reload();
     await colorPicker.waitForElementToBeVisible();
   });
 

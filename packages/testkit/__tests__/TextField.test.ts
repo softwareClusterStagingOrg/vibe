@@ -12,7 +12,6 @@ test.describe("Testkit - Unit Tests - TextField", () => {
     await page.goto(textfieldStory);
     frame = page.frameLocator(frameLocator);
     textField = new TextField(page, frame.locator(textFieldLocator), "TextField");
-    await page.reload();
     await textField.waitForElementToBeVisible();
   });
 

@@ -13,7 +13,6 @@ test.describe("Testkit - Unit Tests - ExpandCollapse", () => {
     await page.goto(expandCollapseStory);
     frame = page.frameLocator(frameLocator);
     expandCollapse = new ExpandCollapse(page, frame.locator(expandCollapseLocator), "ExpandCollapse");
-    await page.reload();
     await expandCollapse.waitForElementToBeVisible();
   });
 
