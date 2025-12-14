@@ -147,7 +147,8 @@ const preview: Preview = {
       themes: {
         Light: "light-app-theme",
         Dark: "dark-app-theme",
-        Black: "black-app-theme"
+          Black: "black-app-theme",
+          Pink: "pink-app-theme"
       },
       defaultTheme: "Light"
     })

@@ -190,6 +190,7 @@
   "ThemeProvider.systemThemes.LIGHT": "light",
   "ThemeProvider.systemThemes.DARK": "dark",
   "ThemeProvider.systemThemes.BLACK": "black",
+  "ThemeProvider.systemThemes.PINK": "pink",
   "ThemeProvider.colors.primaryColor": "primary-color",
   "ThemeProvider.colors.primaryHoverColor": "primary-hover-color",
   "ThemeProvider.colors.primarySelectedColor": "primary-selected-color",
