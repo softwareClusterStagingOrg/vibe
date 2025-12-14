@@ -24,6 +24,22 @@ Official <a href="https://monday.com">monday.com</a> UI resources for applicatio
 
 Vibe Design System is a collection of packages designed to streamline your development process and enhance the user experience, by providing a set of components, styles, and guidelines for building applications in React.js.
 
+This repository is the monorepo that powers every public Vibe package, the documentation site, Storybook tooling, internal automation, and the shared design tokens used at monday.com. It uses Yarn Workspaces with Lerna to keep dozens of packages in sync, so you can develop UI components, icons, docs, and supporting utilities in one place.
+
+## Repository Structure
+
+The `packages/` directory contains everything published from the repo. The most commonly used sub-packages are:
+
+- `packages/core`: Production React components, hooks, tokens loader, and component-level tests.
+- `packages/docs`: Documentation and Storybook configuration that powers [vibe.monday.com](https://vibe.monday.com).
+- `packages/icons`: Source SVGs and React wrappers for the icon set.
+- `packages/style`: Design tokens, CSS variables, and shared styling primitives that ship with `@vibe/core`.
+- `packages/storybook-blocks`: Reusable blocks that make up the Storybook experience.
+- `packages/testkit`: Playwright helpers for integration testing Vibe components.
+- `packages/codemod`, `packages/mcp`, `packages/hooks`, `packages/base`, `packages/config`, and `packages/shared`: Tooling, automation, lower-level building blocks, and shared configuration consumed throughout the monorepo.
+
+Each package exports its own README with details about its API. When contributing, make sure you update the package-specific docs alongside code changes.
+
 ## Installation
 
 ```bash
@@ -45,6 +61,18 @@ Components are imported from the library's root entry:
 ```javascript
 import { Button } from "@vibe/core";
 ```
+
+## Getting Started Locally
+
+1. **Install prerequisites:** Use Node `v20.12` (see `.nvmrc`) and Yarn (Classic). Run `nvm use` to align with the repo version.
+2. **Install dependencies:** `yarn install` will bootstrap every workspace via Lerna.
+3. **Run Storybook locally:** `yarn storybook` spawns package Storybooks in parallel so you can browse docs and test components.
+4. **Run the full test suite:** `yarn test` executes each package's tests via `lerna run test`.
+5. **Lint before committing:** `yarn lint` ensures consistency across packages. Some packages also have local lint scripts—check their READMEs.
+
+The root `package.json` exposes additional helpers such as `yarn build` (runs every package build) and `yarn build:package` (builds publishable artifacts via `scripts/build-dependencies.sh`). Because this is a monorepo, commands automatically scope themselves to the relevant workspace using Lerna.
+
+> Tip: When iterating on a single package, you can run `yarn lerna run <script> --scope <package-name>` to keep feedback loops fast.
 
 ### MCP
 
