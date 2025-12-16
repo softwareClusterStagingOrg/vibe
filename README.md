@@ -24,6 +24,33 @@ Official <a href="https://monday.com">monday.com</a> UI resources for applicatio
 
 Vibe Design System is a collection of packages designed to streamline your development process and enhance the user experience, by providing a set of components, styles, and guidelines for building applications in React.js.
 
+This repository is the monorepo that powers the entire ecosystem. It uses Yarn Workspaces and Lerna to version and build every package from a single codebase so that components, documentation, icons, styles, and tooling always evolve together.
+
+## Repository structure
+
+The codebase is organized under `packages/`, where each workspace is published (or consumed) independently:
+
+- `packages/core`: The primary React component library exposed as `@vibe/core`, plus the design tokens imported via `@vibe/core/tokens`.
+- `packages/icons`: The SVG/React icon set consumed by `@vibe/core` and available standalone as `@vibe/icons`.
+- `packages/docs`: The Storybook instance hosted at `vibe.monday.com`, including docs, catalog, and playground stories.
+- `packages/style`: Low-level styling primitives (CSS custom properties, resets, typography rules) shared by the rest of the system.
+- `packages/storybook-blocks`: Building blocks used inside the documentation site for live examples, guidelines, and MDX content.
+- `packages/testkit`: Playwright-based helpers for running visual and behavioral tests against Vibe components.
+- `packages/mcp`: The Model Context Protocol server that surfaces component metadata, examples, and design tokens inside AI coding tools.
+- `packages/hooks`, `packages/base`, `packages/shared`, and `packages/components/*`: Smaller internal packages that house cross-cutting hooks, base form controls, shared TypeScript utilities, and experimental components.
+
+Auxiliary tooling such as release/build scripts lives in `scripts/`, while repository-wide configuration (ESLint, TS Config, GitHub Actions) sits at the root.
+
+## Local development
+
+1. **Use the recommended Node version** – run `nvm use` (the repo ships with `.nvmrc` targeting Node 20.12) before installing dependencies.
+2. **Install dependencies** – `yarn install` bootstraps every workspace and links cross-package dependencies.
+3. **Build everything** – `yarn build` runs `lerna run build`, compiling each package in dependency order.
+4. **Run quality checks** – `yarn lint` and `yarn test` proxy to the equivalent `lerna run` commands across all packages.
+5. **Work on docs locally** – `yarn storybook` spins up the documentation site so you can browse components, catalog entries, and the playground while developing.
+
+Tip: you can scope any `lerna run` command (for example, `lerna run test --scope @vibe/core`) to target a single package during fast iteration.
+
 ## Installation
 
 ```bash
