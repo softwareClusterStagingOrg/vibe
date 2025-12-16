@@ -24,6 +24,22 @@ Official <a href="https://monday.com">monday.com</a> UI resources for applicatio
 
 Vibe Design System is a collection of packages designed to streamline your development process and enhance the user experience, by providing a set of components, styles, and guidelines for building applications in React.js.
 
+## Repository Structure
+
+This repo is the mono-repo source of truth for the Vibe Design System. It is managed with Yarn Workspaces and Lerna, so every package in `packages/*` can be developed together while still being published independently.
+
+- `packages/core`: The React component library that ships as `@vibe/core`
+- `packages/style`: Design tokens, theming primitives, and shared SCSS utilities
+- `packages/icons`: SVG + React icon components published as `@vibe/icons`
+- `packages/docs`: The Storybook documentation site (`vibe.monday.com`)
+- `packages/storybook-blocks`: Custom MDX/Storybook blocks used by the docs site
+- `packages/testkit`: Playwright helpers for testing Vibe components
+- `packages/codemod`: CLI codemods for migrating between Vibe versions
+- `packages/mcp`: The Model Context Protocol server that surfaces component knowledge in AI tooling
+- `packages/components`, `packages/hooks`, `packages/shared`, etc.: Internal utility packages that power the public libraries above
+
+Supporting scripts (like `scripts/build-dependencies.sh`) live in the root `scripts/` folder, and shared configuration (linting, TS, Storybook) is colocated at the root so every package stays consistent.
+
 ## Installation
 
 ```bash
@@ -45,6 +61,28 @@ Components are imported from the library's root entry:
 ```javascript
 import { Button } from "@vibe/core";
 ```
+
+## Local Development
+
+1. **Install dependencies**
+   ```bash
+   yarn install
+   ```
+2. **Run a full build (optional but useful before publishing)**
+   ```bash
+   yarn build
+   ```
+3. **Launch Storybook for local documentation and component development**
+   ```bash
+   yarn storybook
+   ```
+
+### Helpful scripts
+
+- `yarn test`: Runs each package's test suite through Lerna.
+- `yarn lint`: Executes the shared lint configuration across packages.
+- `yarn build:package`: Builds dependencies needed for publishing storybook blocks and icons.
+- `yarn workspace <package-name> <script>` or `lerna run <script> --scope <package>`: Focus on a specific package (for example `yarn workspace @vibe/core test`).
 
 ### MCP
 
