@@ -69,6 +69,10 @@ Vibe 2 ([`monday-ui-react-core`](https://www.npmjs.com/package/monday-ui-react-c
 
 For version 2 documentation, see [vibe.monday.com/v2](https://vibe.monday.com/v2).
 
+## Just for Fun
+
+Why did the React developer stay so calm? Because they always kept their state under control.
+
 ## Contributing
 
 We welcome and encourage every contributor! Please read our [Contribution Guide](http://vibe.monday.com/?path=/docs/contributing--docs).
