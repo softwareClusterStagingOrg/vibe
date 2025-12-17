@@ -38,6 +38,8 @@ Official <a href="https://monday.com">monday.com</a> UI resources for building R
 
 Vibe delivers a cohesive React component library, accessible foundations, testing utilities, and documentation infrastructure that teams at monday.com rely on to ship product UI quickly and consistently. This monorepo houses every part of that system—from the design tokens that define our visual language to the Storybook docs that showcase real-world usage.
 
+It is the same source of truth powering monday.com's product surfaces and the public builders who extend monday WorkOS.
+
 Key goals:
 
 - **Consistency:** Shared components, icons, and tokens guarantee a unified look-and-feel.
