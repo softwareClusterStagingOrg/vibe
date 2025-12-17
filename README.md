@@ -51,6 +51,30 @@ Auxiliary tooling such as release/build scripts lives in `scripts/`, while repos
 
 Tip: you can scope any `lerna run` command (for example, `lerna run test --scope @vibe/core`) to target a single package during fast iteration.
 
+## Key scripts
+
+- `yarn build:package` – compiles only the dependencies needed for publishing individual packages (invokes `scripts/build-dependencies.sh`).
+- `yarn postinstall` – automatically rebuilds `@vibe/icons` and `vibe-storybook-components` after dependency installation so downstream packages can consume fresh artifacts.
+- `lerna run <command> --scope <pkg>` – executes package-level scripts (such as `build`, `lint`, `test`, or `storybook`) against a single workspace.
+- `lerna changed` / `lerna version` – used by maintainers to detect changed packages and orchestrate semver bumps prior to publishing.
+
+## CI, releases, and publishing
+
+Automated workflows live in `.github/workflows/` and cover linting, type-checking, bundle-size tracking, Storybook previews, and publish pipelines. Key flows include:
+
+- `pr.yml` / `test.yml` – run unit tests, lint checks, and visual regression jobs for every pull request.
+- `chromatic.yml` and `bundle-size.yml` – collect UI diffs and size budgets so regressions surface early.
+- `release.yml` / `release-v2.yml` – build tagged artifacts, run `lerna version`, and publish packages to npm. These workflows rely on `lerna.json` plus the per-package `CHANGELOG.md` files to generate release notes.
+- `publish-storybook.yml` – deploys the Storybook instance to `vibe.monday.com` once a change merges.
+
+In addition, custom composite actions under `.github/actions/` (for example `setup`, `git-creds`, `download-builds`) encapsulate common CI steps shared across workflows.
+
+## Documentation and ecosystem sites
+
+- `packages/docs` powers https://vibe.monday.com with MDX docs, usage guidelines, and the interactive playground (`/playground` story).
+- `packages/storybook-blocks` exposes reusable Storybook MDX components (tabs, callouts, live previews) used across the documentation site.
+- `packages/mcp` provides the same design-system knowledge via the Model Context Protocol so AI copilots can answer Vibe-specific questions inside your editor.
+
 ## Installation
 
 ```bash
