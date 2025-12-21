@@ -43,6 +43,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     getItemProps,
     reset: hookReset,
     toggleMenu,
+    closeMenu,
     filteredOptions,
     selectedItem: hookSelectedItem
   } = useDropdownSelect<Item>(
@@ -100,6 +101,7 @@ const DropdownSelectController = <Item extends BaseListItemData<Record<string, u
     onClear,
     size,
     toggleMenu,
+    closeMenu,
     isFocused,
     loading
   };

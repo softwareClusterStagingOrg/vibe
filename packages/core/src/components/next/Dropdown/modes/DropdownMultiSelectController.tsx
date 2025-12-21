@@ -44,6 +44,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     getItemProps,
     reset: hookReset,
     toggleMenu,
+    closeMenu,
     filteredOptions,
     selectedItems: hookSelectedItems,
     addSelectedItem: hookAddSelectedItem,
@@ -111,6 +112,7 @@ const DropdownMultiSelectController = <Item extends BaseListItemData<Record<stri
     removeSelectedItem: hookRemoveSelectedItem,
     size,
     toggleMenu,
+    closeMenu,
     isFocused,
     loading
   };

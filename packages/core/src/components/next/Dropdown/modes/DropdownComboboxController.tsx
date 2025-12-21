@@ -59,7 +59,8 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     reset: hookReset,
     filteredOptions,
     selectedItem: hookSelectedItem,
-    toggleMenu
+    toggleMenu,
+    closeMenu
   } = useDropdownCombobox<Item>(
     options,
     isMenuOpenProp,
@@ -125,6 +126,7 @@ const DropdownComboboxController = <Item extends BaseListItemData<Record<string,
     closeMenuOnSelect,
     size,
     toggleMenu,
+    closeMenu,
     loading
   };
   return <DropdownWrapperUI contextValue={contextValue} dropdownRef={dropdownRef} />;
