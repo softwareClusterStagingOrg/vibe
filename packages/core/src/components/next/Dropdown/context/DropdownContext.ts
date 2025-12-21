@@ -25,6 +25,7 @@ export interface DropdownContextValue<Item extends BaseListItemData<Record<strin
 
   reset: () => void;
   toggleMenu: () => void;
+  closeMenu: () => void;
   onClear?: () => void;
   onOptionSelect?: (option: Item) => void;
   onOptionRemove?: (option: Item) => void;

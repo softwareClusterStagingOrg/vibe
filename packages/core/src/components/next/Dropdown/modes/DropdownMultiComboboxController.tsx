@@ -52,6 +52,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     getInputProps: hookGetInputProps,
     reset: hookReset,
     toggleMenu,
+    closeMenu,
     filteredOptions,
     selectedItems: hookSelectedItems,
     addSelectedItem: hookAddSelectedItem,
@@ -131,6 +132,7 @@ const DropdownMultiComboboxController = <Item extends BaseListItemData<Record<st
     size,
     getDropdownProps,
     toggleMenu,
+    closeMenu,
     loading
   };
 
