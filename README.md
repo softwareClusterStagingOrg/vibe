@@ -4,27 +4,74 @@
 </p>
 
 <p align="center">
-Official <a href="https://monday.com">monday.com</a> UI resources for application development in React.js
+ Official <a href="https://monday.com">monday.com</a> UI resources for building React applications.
 </p>
 
 <p align="center">
   <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@vibe/core">
   <a href="https://bundlephobia.com/package/@vibe/core"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@vibe/core"></a>
   <a href="https://www.npmjs.com/package/@vibe/core"><img alt="NPM Version" src="https://img.shields.io/npm/v/@vibe/core?label=@vibe/core"></a>
-  <a href="https://github.com/mondaycom/vibe/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/mondaycom/vibe"></a>
+  <a href="https://github.com/softwareClusterStagingOrg/vibe/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/softwareClusterStagingOrg/vibe"></a>
 </p>
 
 <p align="center">
   <a href="https://vibe.monday.com">Documentation</a> •
   <a href="https://vibe.monday.com/?path=/docs/catalog--docs">Catalog</a> •
-  <a href="https://vibe.monday.com/?path=/story/playground--playground">Playground</a>
+  <a href="https://vibe.monday.com/?path=/story/playground--playground">Playground</a> •
+  <a href="https://github.com/softwareClusterStagingOrg/vibe/discussions">Discussions</a>
 </p>
 
 ## Overview
 
-Vibe Design System is a collection of packages designed to streamline your development process and enhance the user experience, by providing a set of components, styles, and guidelines for building applications in React.js.
+Vibe is a monorepo that packages monday.com's production UI system for the open community. It delivers:
 
-## Installation
+- A comprehensive React component library with accessibility, responsive design, and theming baked in.
+- Shared design tokens, icons, motion primitives, and Storybook blocks that mirror monday.com's UI language.
+- Tooling (codemods, MCP server, testing utilities) that helps teams adopt Vibe consistently across large applications.
+
+## Packages
+
+| Package | Description |
+| ------- | ----------- |
+| [`@vibe/core`](packages/core/README.md) | Production-ready React components, hooks, tokens, and utilities. |
+| [`@vibe/icons`](packages/icons/README.md) | The full monday.com icon set, optimized for React. |
+| [`@vibe/testkit`](packages/testkit/README.md) | Playwright helpers for writing resilient UI tests. |
+| [`@vibe/codemod`](packages/codemod/README.md) | Codemods and CLI tools for automated upgrades. |
+| [`@vibe/mcp`](packages/mcp/README.md) | Model Context Protocol server that surfaces component metadata to AI tooling. |
+| [`monday-ui-style`](packages/style/README.md) | CSS custom-property tokens and base styles (consumed automatically by `@vibe/core`). |
+| [`vibe-storybook-components`](packages/storybook-blocks/README.md) | Storybook blocks and docs-only components. |
+
+There are additional supporting workspaces under `packages/` and `packages/components/` that follow the same conventions. The repo uses Yarn workspaces and Lerna to orchestrate builds.
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js `v20.12` (see `.nvmrc`)
+- Yarn 1.x (Workspaces)
+
+### Install dependencies
+
+```bash
+git clone https://github.com/softwareClusterStagingOrg/vibe.git
+cd vibe
+yarn install
+```
+
+### Useful scripts
+
+```bash
+yarn build          # Runs lerna build across packages
+yarn lint           # Lints all workspaces
+yarn test           # Runs package-level test suites
+yarn storybook      # Starts every Storybook in parallel (useful for local docs)
+```
+
+Individual packages expose their own scripts; run `lerna run <script> --scope <package>` for targeted development.
+
+## Using `@vibe/core`
+
+Install from npm:
 
 ```bash
 npm install @vibe/core
@@ -32,49 +79,62 @@ npm install @vibe/core
 yarn add @vibe/core
 ```
 
-To load all the relevant CSS tokens, import the tokens file in your root application file:
+Import the design tokens once in your app bootstrap file so CSS custom properties are available:
 
 ```javascript
 import "@vibe/core/tokens";
 ```
 
-## Usage
-
-Components are imported from the library's root entry:
+Then consume components directly from the package root:
 
 ```javascript
 import { Button } from "@vibe/core";
 ```
 
-### MCP
+### Fonts
 
-Vibe includes an MCP (Model Context Protocol) server that provides intelligent assistance for working with Vibe components. The MCP server can help you discover component APIs, get usage examples, find appropriate icons, and follow best practices.
+Vibe is optimized for the Poppins, Figtree, and Roboto font families. Add them via Google Fonts (or host them yourself):
 
-To get started, follow the installation instructions in the [@vibe/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md) docs to integrate it in your preferred AI development tools.
+```html
+<link
+  href="https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800;900&family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+  rel="stylesheet"
+/>
+```
 
-## Ecosystem
+### Theming and SSR
 
-- [@vibe/core](https://github.com/mondaycom/vibe/blob/master/packages/core/README.md): Core component library
-- [@vibe/icons](https://github.com/mondaycom/vibe/blob/master/packages/icons/README.md): Icons library
-- [@vibe/testkit](https://github.com/mondaycom/vibe/blob/master/packages/testkit/README.md): Testing utilities for Playwright
-- [@vibe/codemod](https://github.com/mondaycom/vibe/blob/master/packages/codemod/README.md): Codemods and CLI tools
-- [monday-ui-style](https://github.com/mondaycom/vibe/blob/master/packages/style/README.md): Styling foundations (included in @vibe/core)
-- [vibe-storybook-components](https://github.com/mondaycom/vibe/blob/master/packages/storybook-blocks/README.md): Vibe Storybook Blocks
-- [storybook-addon-playground](https://github.com/mondaycom/storybook-addon-playground/): A Component Playground Addon for Storybook
-- [@vibe/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md): MCP server for Vibe Design System
+- Components expose CSS variables for theming; see `packages/core/docs/theming.md` for guidance.
+- For experimental SSR support, initialize `globalThis.injectedStyles = {}` on the server and inject the collected styles into your HTML response.
+
+## MCP Assistant
+
+The `@vibe/mcp` package exposes a Model Context Protocol server that lets AI-powered tools discover component APIs, usage snippets, and icon metadata. Follow the setup guide in [`packages/mcp`](packages/mcp/README.md) to integrate it with Cursor, VS Code, or other MCP-compatible clients.
+
+## Repository Structure
+
+- `packages/core` – primary component source, hooks, tokens, Storybook stories.
+- `packages/icons` – SVG source, React icon exports, generation scripts.
+- `packages/style` – CSS variables and theming primitives shared by every package.
+- `packages/storybook-blocks` – Docs-only components powering `vibe.monday.com`.
+- `packages/testkit` – Playwright fixtures and helpers aligned with Vibe semantics.
+- `packages/codemod` – Transformations that keep consumer apps up to date.
+- `packages/mcp` – MCP server and metadata definitions.
+
+Refer to `.github/workflows/` for CI, release, and publishing pipelines.
 
 ## Older Versions
 
-Vibe 2 ([`monday-ui-react-core`](https://www.npmjs.com/package/monday-ui-react-core)) will no longer receive new features or enhancements but will continue to receive critical bug fixes as needed. We highly recommend following the [migration guide](http://vibe.monday.com/?path=/docs/migration-guide--docs) to upgrade to the actively maintained Vibe 3, which includes the latest improvements, new components, and ongoing support.
-
-For version 2 documentation, see [vibe.monday.com/v2](https://vibe.monday.com/v2).
+Vibe 2 (`monday-ui-react-core`) is in maintenance mode. Follow the [migration guide](https://vibe.monday.com/?path=/docs/migration-guide--docs) to upgrade to Vibe 3 for the latest components, accessibility fixes, and tooling. Legacy docs remain at [vibe.monday.com/v2](https://vibe.monday.com/v2).
 
 ## Contributing
 
-We welcome and encourage every contributor! Please read our [Contribution Guide](http://vibe.monday.com/?path=/docs/contributing--docs).
+We love contributions! Read the [contribution guide](https://vibe.monday.com/?path=/docs/contributing--docs) for coding standards, component conventions, and review expectations. Before opening a PR, run the relevant `yarn lint`, `yarn test`, and `yarn build` scripts so CI stays green.
 
-## Suggestions
+## Support & Feedback
 
-If you have any questions or suggestions, please feel free to open a [discussion](https://github.com/mondaycom/vibe/discussions).
+- Ask questions or propose ideas in [Discussions](https://github.com/softwareClusterStagingOrg/vibe/discussions).
+- Report bugs via [Issues](https://github.com/softwareClusterStagingOrg/vibe/issues/new/choose) with repro steps and environment details.
+- For urgent security matters, follow monday.com's [security disclosure](https://monday.com/trust/security/).
 
-Found a bug? Please [open an issue](https://github.com/mondaycom/vibe/issues/new/choose).
+Happy building!
