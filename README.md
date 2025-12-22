@@ -78,3 +78,5 @@ We welcome and encourage every contributor! Please read our [Contribution Guide]
 If you have any questions or suggestions, please feel free to open a [discussion](https://github.com/mondaycom/vibe/discussions).
 
 Found a bug? Please [open an issue](https://github.com/mondaycom/vibe/issues/new/choose).
+
+Hey Kevin :) 
