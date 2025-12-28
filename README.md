@@ -7,6 +7,8 @@
 Official <a href="https://monday.com">monday.com</a> UI resources for application development in React.js
 </p>
 
+<p align="center"><em>Our components are so tidy that even their flexboxes align their life goals.</em></p>
+
 <p align="center">
   <img alt="NPM Downloads" src="https://img.shields.io/npm/dm/@vibe/core">
   <a href="https://bundlephobia.com/package/@vibe/core"><img alt="npm bundle size" src="https://img.shields.io/bundlephobia/minzip/@vibe/core"></a>
