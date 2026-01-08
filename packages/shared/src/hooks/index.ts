@@ -1,3 +1,4 @@
+export * from "./useAuth";
 export * from "./useMergeRef";
 export * from "./useKeyEvent";
 export * from "./useEventListener";
