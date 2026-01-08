@@ -1,3 +1,4 @@
+export * from "./auth-utils";
 export * from "./colors-utils";
 export * from "./colors-vars-map";
 export * from "./dom-event-utils";
