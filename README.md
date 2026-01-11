@@ -24,6 +24,8 @@ Official <a href="https://monday.com">monday.com</a> UI resources for applicatio
 
 Vibe Design System is a collection of packages designed to streamline your development process and enhance the user experience, by providing a set of components, styles, and guidelines for building applications in React.js.
 
+> **Fun Fact:** The Vibe Design System has more components than a developer has excuses for not writing tests! We've got everything from Buttons to Tooltips – now you have no excuse for building ugly UIs either! 😄✨
+
 ## Installation
 
 ```bash
