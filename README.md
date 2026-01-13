@@ -73,6 +73,8 @@ For version 2 documentation, see [vibe.monday.com/v2](https://vibe.monday.com/v2
 
 We welcome and encourage every contributor! Please read our [Contribution Guide](http://vibe.monday.com/?path=/docs/contributing--docs).
 
+> **Note:** We're not saying our components are perfect, but they're at least better than that time someone tried to center a div with `margin-left: 37.5%`. Yes, we've all been there. 😅
+
 ## Suggestions
 
 If you have any questions or suggestions, please feel free to open a [discussion](https://github.com/mondaycom/vibe/discussions).
