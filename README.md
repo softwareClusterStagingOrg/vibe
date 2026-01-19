@@ -54,6 +54,8 @@ To get started, follow the installation instructions in the [@vibe/mcp](https://
 
 ## Ecosystem
 
+### Main Packages
+
 - [@vibe/core](https://github.com/mondaycom/vibe/blob/master/packages/core/README.md): Core component library
 - [@vibe/icons](https://github.com/mondaycom/vibe/blob/master/packages/icons/README.md): Icons library
 - [@vibe/testkit](https://github.com/mondaycom/vibe/blob/master/packages/testkit/README.md): Testing utilities for Playwright
@@ -62,6 +64,19 @@ To get started, follow the installation instructions in the [@vibe/mcp](https://
 - [vibe-storybook-components](https://github.com/mondaycom/vibe/blob/master/packages/storybook-blocks/README.md): Vibe Storybook Blocks
 - [storybook-addon-playground](https://github.com/mondaycom/storybook-addon-playground/): A Component Playground Addon for Storybook
 - [@vibe/mcp](https://github.com/mondaycom/vibe/blob/master/packages/mcp/README.md): MCP server for Vibe Design System
+
+### Internal Packages
+
+These packages are used internally by @vibe/core and other packages:
+
+- [@vibe/base](https://github.com/mondaycom/vibe/blob/master/packages/base/README.md): Base components for building complex UI elements
+- [@vibe/hooks](https://github.com/mondaycom/vibe/blob/master/packages/hooks/README.md): Collection of reusable React hooks
+- [@vibe/shared](https://github.com/mondaycom/vibe/blob/master/packages/shared/README.md): Shared utilities, types, and constants
+- [@vibe/button](https://github.com/mondaycom/vibe/blob/master/packages/components/button/README.md): Button component
+- [@vibe/dialog](https://github.com/mondaycom/vibe/blob/master/packages/components/dialog/README.md): Dialog/Popover component
+- [@vibe/icon](https://github.com/mondaycom/vibe/blob/master/packages/components/icon/README.md): Icon component
+- [@vibe/layer](https://github.com/mondaycom/vibe/blob/master/packages/components/layers/README.md): Layer management system
+- [@vibe/loader](https://github.com/mondaycom/vibe/blob/master/packages/components/loader/README.md): Loader/Spinner component
 
 ## Older Versions
 
